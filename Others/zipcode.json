@@ -1,0 +1,87 @@
+[
+	{
+		"zip": "22312",
+		"city": "Alexandria",
+		"state":"VA"
+	},
+	{
+		"zip": "22030",
+		"city": "Fairfax",
+		"state":"VA"
+	},
+	{
+		"zip": "22301",
+		"city": "Tysons Corner",
+		"state":"VA"
+	},
+	{
+		"zip": "20148",
+		"city": "Ashburn",
+		"state":"VA"
+	},
+	{
+		"zip": "24502", 	 		
+		"city": "Lynchburg",
+		"state":"VA"
+	},
+	{
+		"zip": "26105", 	
+		"city": "Vienna", 	
+		"state":"VA"
+	},
+	{
+		"zip": "26763", 	 		
+		"city": "Springfield",
+		"state":"VA"
+	},
+	{
+		"zip": "20194", 	 		
+		"city": "Reston",
+		"state":"VA"
+	},
+	{
+		"zip": "22101", 	 		
+		"city": "Mc Lean",
+		"state":"VA"
+	},
+	{
+		"zip": "20639", 	 		
+		"city": "Huntingtown",
+		"state":"MD"
+	},
+	{
+		"zip": "22044", 	 		
+		"city": "Falls Church",
+		"state":"VA"
+	},
+	{
+		"zip": "20704", 	 		
+		"city": "Beltsville",
+		"state":"MD"
+	},
+	{
+		"zip": "20740", 	 		
+		"city": "College Park",
+		"state":"MD"
+	},
+	{
+		"zip": "32024", 	 		
+		"city": "Lake City",
+		"state":"FL"
+	},
+	{
+		"zip": "32201", 	 		
+		"city": "Jacksonville",
+		"state":"FL"
+	},
+	{
+		"zip": "32312", 	 		
+		"city": "Tallahassee",
+		"state":"FL"
+	},
+	{
+		"zip": "32809", 	 		
+		"city": "Orlando",
+		"state":"FL"
+	}		
+]
