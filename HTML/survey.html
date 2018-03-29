@@ -1,0 +1,225 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>CS Department Feedback Page</title> 
+	<link rel="stylesheet" type="text/css" href="style.css" />	
+	<script src="survey.js" type="text/javascript"></script>
+	<script src="zipcode.json" type="text/javascript"></script>
+  </head>
+  <body onload="checkCookie()">
+	<table align="center">
+	  <tr>
+		<td><a href="http://volgenau.gmu.edu/"><img src = "cs-logo.jpg" align="center" width = "100" height = "100" alt = "Volgenau School of Engineering" /></a></td>
+		<td><h1 class="heading" align="center">Department of Computer Science</h1></td>
+	  </tr>
+	</table>
+    <div id="sidebar">
+	  <h4 class="sidebar"><a href="CS Department.html" class="link">Computer Science</a></h4>		
+	  <h4 class="sidebar"><a href="survey.html" class="link">Feedback</a></h4>
+	</div>
+	<div id="main">
+	  <h5 id="greet"></h5>
+	  <p id="check"></p>	  
+	  <p>This is a survey from CS department. We request prospective students to provide some feedback
+			about their campus visit.</p>		
+		<form method = "post" autocomplete = "on" onsubmit="return handleSubmit();">			
+		  <h5> Basic Information: </h5>
+			<table>
+			  <tr>
+				<td><label> First Name : </td>
+				<td><input type = "text" id= "fname" placeholder = "First Name" autofocus required/> 
+				</label></td>
+				<td><div class="error" id="fname_error"></div></td>
+			  </tr>
+			  <tr>
+				<td><label> Middle Name : </td>
+				<td><input type = "text" id= "mname" placeholder = "Middle Name" />(If any) </label></td>
+				<td><div class="error" id="mname_error"></div></td>
+			  </tr>
+			  <tr>
+				<td><label> Last Name : </td>
+				<td><input type = "text" id= "lname" placeholder = "Last Name" required/></label></td>
+				<td><div class="error" id="lname_error"></div></td>
+			  </tr>
+			  <tr>
+				<td><label> Street Address : </td>
+				<td><input type = "text" id= "address" placeholder = "Street Address" /> </label></td>
+				<td><div class="error" id="address_error"></div></td>
+			  </tr>
+			  <tr>
+				<td><label> Zip Code : </td>
+				<td><input type = "number" id= "zip" maxlength="5"  onblur = "validateZip(this.value)"
+				placeholder = "#####" /> </label></td>
+				<td><div align="left" class="error" id="zip_error"></div></td>
+			  </tr>
+			  <tr>
+				<td><label> City : </td>
+				<td><div id= "city"> </div> </label></td>
+			  </tr>
+			  <tr>
+				<td><label> State : </td>
+				<td><div id= "state"> </div> </label></td>
+			  </tr>			  
+			  <tr>
+				<td><label> Phone Number : </td>
+				<td><input type = "tel" id= "phone" placeholder = "###-###-####" required/> 
+				(###-###-####)</label></td>
+			  </tr>
+			  <tr>
+				<td><label> Email : </td>
+				<td><input type = "email" id= "email" placeholder = "name@domain.com" required/> 
+				(name@domain.com) </label></td>
+				<td><div class="error" id="email_error"></div></td>
+			  </tr>
+			  <tr>
+				<td><label> URL : </td>
+				<td><input type = "url" id= "url" placeholder = "http://domainname.com"/> 
+				(http://domainname.com) </label></td>
+			  </tr>
+			  <tr>
+				<td><label> Date of Survey : </td>
+				<td><input type = "date" id= "date"/> (mm/dd/yyyy)</label></td>
+			  </tr>
+			</table>
+		  <h5> Survey Questions: </h5>
+			<table>
+			  <tr>
+				<td><label for="txtList"><strong>High School Graduation Month: </strong></td>
+				<td><input type="text" id="txtList" placeholder="Select a month" list="months" />
+					<datalist id="months">
+					  <option value="January">
+					  <option value="February">
+					  <option value="March">
+					  <option value="April">
+					  <option value="May">
+					  <option value="June">
+					  <option value="July">
+					  <option value="August">
+					  <option value="September">
+					  <option value="October">
+					  <option value="November">
+					  <option value="December">
+					</datalist></label>
+				</td>
+			  </tr>
+			  <tr>
+				<td><label><strong>Graduation Year : </strong></td>
+				<td><input type = "number" id= "gyear" min="2000" max="2020" step="1" maxlength="4"/></label></td>
+			  </tr>
+			</table>
+			<table>
+			  <tr>
+				<td><strong>Things you liked most about the campus: </strong></td>
+				<td><div class="error" id="like_error"></div></td>
+			  </tr>
+			  <tr>
+				<table>
+				  <tr>
+					<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+					<td><label>Students </td>
+					<td><input name = "thingsliked" type = "checkbox" value = "Students" /></label></td>
+				  </tr>
+				  <tr>
+					<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+					<td><label>Location </td>
+					<td><input name = "thingsliked" type = "checkbox" value = "Location" /></label></td>
+				  </tr>
+				  <tr>
+					<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+					<td><label>Campus </td>
+					<td><input name = "thingsliked" type = "checkbox" value = "Campus" /></label></td>
+				  </tr>
+				  <tr>
+					<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+					<td><label>Atmosphere </td>
+					<td><input name = "thingsliked" type = "checkbox" value = "Atmosphere" /></label></td>
+				  </tr>
+				  <tr>
+					<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+					<td><label>Dorm rooms </td>
+					<td><input name = "thingsliked" type = "checkbox" value = "rooms" /></label></td>
+				  </tr>
+				  <tr>
+					<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+					<td><label>Sports </td>
+					<td><input name = "thingsliked" type = "checkbox" value = "Sports" /></label></td>
+				  </tr>
+				</table>
+			  </tr>
+			  <tr>
+				<td><strong>How do you become interested in GMU: </strong></td>
+				<td><div class="error" id="choice_error"></div></td>
+			  </tr>
+			  <tr>
+				<table>
+				  <tr>
+					<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+					<td><label>Friends </td>
+					<td><input name = "interested" type = "radio" value = "Friends" /></label></td>
+				  </tr>
+				  <tr>
+					<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+					<td><label>Television </td>
+					<td><input name = "interested" type = "radio" value = "Television" /></label></td>				  
+				  </tr>
+				  <tr>
+					<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+					<td><label>Internet </td>
+					<td> <input name = "interested" type = "radio" value = "Internet" /></label></td>
+				  </tr>
+				  <tr>
+					<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+					<td><label>Other </td>
+					<td><input name = "interested" type = "radio" value = "other" /></label></td>
+				  </tr>
+				</table>
+			  </tr>
+			</table>
+			<table>
+			  <tr>
+				<td><strong>Are you going to recommend this school to other students? </strong></td>
+				<td><select name = "recommend">
+					<option selected = "selected">Not selected</option>
+					<option>Very Likely</option>
+					<option>Likely</option>
+					<option>Unlikely</option></select>
+				</td>
+			  </tr>
+			  <tr>
+				<td><label><strong>Additional Comments: </strong></td>
+			  </tr>
+			  <tr>
+				<td><textarea name="comments">Provide comments here about your visit
+				</textarea></label></td>
+			  </tr>
+			  <tr>
+				<td><strong>Write down 10 number within the range of 1-100. Separate them using comma.
+				</strong></td></tr>			  
+			</table>
+			<table>
+			  <tr>
+				<td><label>Data</td>				  
+				<td><input type = "text" id= "num" placeholder = "0,1,2,3,4,5,6,7,8,9"/> </label></td>				
+				<td><span id="tab"></span>
+				<button type="button" id="calc" onclick="calculate()">Calculate</button></td>
+			  </tr>
+			  <div class="error" id="msg"></div>
+			  <tr>				
+				<td><label id="avg"></label></td>	
+			  </tr>
+			  <tr>								
+				<td><label id="max"></label></td>				
+			  </tr>
+			</table>
+			<p>	
+				<input type = "submit" id= "submit" value="Submit" />
+				<span id="tab"></span>
+				<input type = "reset" onclick="handleReset()" id= "clear" value="Reset"	/> 
+			</p>
+		</form>
+	</div>
+	<div><a href="https://www2.gmu.edu/" class="logo" target="_blank" id="logo"></a></div>
+  </body>
+</html>
